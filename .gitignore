@@ -10,3 +10,4 @@ json.json
 # Root folders
 node_modules
 dist
+coverage
