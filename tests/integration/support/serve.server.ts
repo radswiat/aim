@@ -1,10 +1,10 @@
-import express from 'express'
+import express, { Request, Response } from 'express'
 
 const app = express()
 
-app.get('/api', function (req, res) {
+app.get('/api', async (req: Request, res: Response) => {
   res.send({
-    title: req.params.id,
+    title: req.query.id,
     origin: 'serve',
   })
 })
