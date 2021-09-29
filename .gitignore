@@ -1,0 +1,12 @@
+# IDE specific
+.idea
+.DS_Store
+
+# Root files
+yarn-error.log
+package-lock.json
+json.json
+
+# Root folders
+node_modules
+dist

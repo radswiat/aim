@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "emitDecoratorMetadata": true,
+    "module": "commonjs",
+    "target": "es2016",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "strictNullChecks": false,
+    "checkJs": false,
+    "experimentalDecorators": true,
+    "paths": {
+      "*": [ "./types/*" ],
+      "@pages/*": ["src/client/app/pages/*"],
+      "@routes/*": ["src/client/app/routes/*"],
+      "@shared/*": ["src/client/app/shared/*"],
+      "@typings/*": ["src/client/typings/*"],
+      "@styles/*": ["src/client/styles/*"],
+      "@config/*": ["src/client/config/*"],
+      "@tools/*": ["tools/*"],
+      "@server/common/*": ["src/server/common/*"]
+    },
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": false,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "isolatedModules": true
+  },
+  "exclude": [
+    "node_modules",
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+  ]
+}
