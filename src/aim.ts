@@ -1,9 +1,12 @@
-import { Request, Response, NextFunction } from 'express'
+import { Application, Request, Response, NextFunction } from 'express'
 
-import { createProxyMiddleware } from 'http-proxy-middleware'
+import { AimConfig } from './aim.types'
 
-export default function AimMiddleware(req: Request, res: Response, next: NextFunction) {
-  createProxyMiddleware('/api', {
-    target: 'http://localhost:3000',
+import proxy from './modules/proxy'
+
+export default function AimMiddleware(app: Application, config: AimConfig) {
+  config.proxyList.forEach((proxyConfig) => {
+    console.log(`aim: setup proxy for ${proxyConfig.sourcePath}`)
+    app.use(proxyConfig.sourcePath, proxy(proxyConfig))
   })
 }

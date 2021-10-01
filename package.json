@@ -5,9 +5,11 @@
   "description": "Mocking library",
   "scripts": {
     "build": "babel src --out-dir dist --extensions '.ts,.js'",
-    "tests:integration:support:start": "concurrently 'nodemon --exec yarn tests:integration:support:express' 'nodemon --exec yarn tests:integration:support:serve'",
+    "tests:integration:support:start": "concurrently 'yarn tests:integration:support:express:watch' 'yarn tests:integration:support:serve:watch'",
     "tests:integration:support:express": "babel-node --extensions '.ts' tests/integration/support/express.server.ts",
-    "tests:integration:support:serve": "babel-node --extensions '.ts' tests/integration/support/serve.server.ts"
+    "tests:integration:support:express:watch": "nodemon --exec yarn tests:integration:support:express -e js,ts --watch src/ --watch tests/integration/support/express.server.ts --delay 2",
+    "tests:integration:support:serve": "babel-node --extensions '.ts' tests/integration/support/serve.server.ts",
+    "tests:integration:support:serve:watch": "nodemon --exec yarn tests:integration:support:serve -e js,ts --watch tests/integration/support/serve.server.ts"
   },
   "dependencies": {
     "@babel/cli": "^7.15.7",
@@ -26,6 +28,7 @@
     "@types/express": "^4.17.13",
     "babel-plugin-module-resolver": "^4.1.0",
     "http-proxy-middleware": "^2.0.1",
+    "micromatch": "^4.0.4",
     "typescript": "^4.4.3"
   },
   "devDependencies": {
